@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+  
+  private var posts: [Post] = [
+    Post(id: "1", title: "First post"),
+    Post(id: "2", title: "Second post"),
+    Post(id: "3", title: "Third post")
+  ]
+  
+  var body: some View {
+    NavigationStack {
+      List(posts) { post in
+        Text(post.title)
+      }
+      .navigationTitle("Hacker news")
     }
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
