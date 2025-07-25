@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct Post: Identifiable {
-  let id: String
+struct Post: Decodable, Identifiable {
+  var id: String { objectID }
+  let objectID: String
+  let points: Int
   let title: String
+  let url: String?
 }
